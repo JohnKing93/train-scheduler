@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is an app to schedule train times.">
+    <meta name="author" content="Johnny King">
+
+    <title>Train Scheduler</title>
+
+    <!-- Reset -->
+    <link href="assets/css/reset.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    
+    <!-- Master Style-->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+        
+        <div class="jumbotron">
+            <h1 class="display-4">Train Scheduler</h1>
+            <p class="lead">This app will allow the scheduling of future train arrivals based on the next train's time and frequency.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Train Schedule</h5>
+                        <table class="table table-hover table-responsive-md" id="train-schedule-table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (mins)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Train</h5>
+                        <form>
+                            <div class="form-group row">
+                                <label for="input-train-name" class="col-sm-2 col-form-label">Train Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-train-name" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-destination" class="col-sm-2 col-form-label">Destination</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-destination" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-first-train-time" class="col-sm-2 col-form-label">First Train Time (HH:MM)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-first-train-time" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-frequency" class="col-sm-2 col-form-label">Frequency (mins)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input-frequency" placeholder="">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2" id="add-train">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+    </div>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+  </body>
+
+</html>
